@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   
+    <title>{% block title %}Pirates Academy{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div id="header">
+        <a href="#" class="logo">CoderVERSE</a>
+        <ul class="menu">
+            {% if request.user.is_authenticated %}
+            <li><a href="{% url 'signup' %}">Sign up</a></li>
+            {% else %}
+            <li><a href="{% url 'logout' %}">Sign out</a></li>
+            {% endif %}
+
+        </ul>
+    </div>
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+    {% block include_js %}
+    {% endblock %}
+    <script>
+        document.addEventListener("DOMContentLoaded", (event) => {
+    
+
+        });
+    </script>
+
+    
+</body>
+</html>
