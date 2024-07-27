@@ -15,3 +15,4 @@ def course_chat_room(request,course_id):
     return render(request,'chat/room.html',{'course':course})
 
 
+
